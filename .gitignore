@@ -10,6 +10,7 @@ __pycache__/
 # Data
 data/raw/
 data/interim/
+data/processed/
 
 # OS
 .DS_Store

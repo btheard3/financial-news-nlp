@@ -12,3 +12,12 @@ This repository contains:
 - NLP feature engineering
 - predictive modeling
 - evaluation and analysis
+
+## Data
+
+This project uses the TradyFlow "Best Options Trade Ideas" dataset.
+Due to licensing and size considerations, raw data is not committed
+to the repository.
+
+Place the CSV file in:
+`data/raw/`
