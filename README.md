@@ -59,7 +59,7 @@ Each record represents a single published headline with associated metadata (tim
 ---
 
 ## 📁 Repository Structure
-
+```
 financial-news-nlp/
 ├── data/
 │ ├── raw/ # Original headline CSVs
@@ -71,7 +71,7 @@ financial-news-nlp/
 │ ├── 04_topic_modeling_narratives.ipynb
 │ └── 05_final_summary.ipynb
 ├── README.md
-
+```
 
 ---
 
