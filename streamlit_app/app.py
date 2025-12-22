@@ -127,7 +127,7 @@ def run_models(df: pd.DataFrame, n_clusters: int, n_topics: int, max_features: i
         n_components=t,
         random_state=42,
         learning_method="batch",
-        max_iter=25,
+        max_iter=10,
     )
     doc_topic = lda.fit_transform(Xc)
 
@@ -167,13 +167,13 @@ def main():
             "Sample size (for speed)",
             min_value=2000,
             max_value=60000,   # safe cap; we clamp to len(df) later
-            value=15000,
+            value=6000,
             step=1000,
         )
 
         n_clusters = st.slider("Clusters (KMeans)", 2, 12, 6)
         n_topics = st.slider("Topics (LDA)", 2, 12, 6)
-        max_features = st.slider("Max features", 500, 10000, 5000, step=500)
+        max_features = st.slider("Max features", 500, 10000, 3000, step=500)
         top_n_terms = st.slider("Top terms shown", 5, 20, 10)
 
         # B) Run button so the app doesn't retrain on every slider wiggle
