@@ -1,118 +1,100 @@
 # Financial News NLP — Narrative & Topic Analysis
+🔗 Live App
 
-This project applies Natural Language Processing (NLP) to financial news headlines from **CNBC, Reuters, and The Guardian** to identify dominant market narratives and compare how different outlets frame economic events.
+http://alb-financial-news-nlp-27107617.us-east-2.elb.amazonaws.com/
 
-Rather than predicting prices, the goal is **interpretability**: understanding *what stories are being told*, *which themes dominate*, and *how narrative emphasis varies across sources*.
+## Problem
 
----
+Markets move on stories, yet most financial news analysis collapses narrative into shallow sentiment scores. This ignores framing, emphasis, and timing—the factors that shape expectations and delayed market reactions.
 
-## 📌 Project Objectives
+## Why This Problem Matters
 
-- Clean and normalize raw financial news text
-- Establish an interpretable NLP baseline (TF-IDF)
-- Discover recurring themes via clustering and topic modeling
-- Compare narrative distributions across news outlets
-- Produce human-readable insights suitable for analysis and reporting
+Narratives influence:
 
----
+- Risk perception
 
-## 📊 Datasets
+- Volatility amplification
 
-- **CNBC Headlines**
-- **Reuters Headlines**
-- **The Guardian Headlines**
+- Investor attention cycles
 
-Each record represents a single published headline with associated metadata (time, source).
+Understanding *how* stories are framed helps explain why markets react the way they do—even when the data is already known.
 
----
+## Data Used
 
-## 🧠 Methodology
+- Financial news headlines from:
 
-### 1. Exploratory Data Analysis & Problem Framing
-- Inspect dataset structure and coverage
-- Define headlines as the primary NLP input
-- Frame the task as **unsupervised narrative discovery**
+    - **CNBC**
 
-### 2. Text Cleaning & Normalization
-- Lowercasing, whitespace normalization
-- Conservative punctuation handling (finance-aware)
-- Deduplication and missing-value handling
-- Persist cleaned data for reproducibility
+    - **Reuters**
 
-### 3. TF-IDF Baseline + Clustering
-- Convert text to TF-IDF features
-- Apply KMeans clustering
-- Interpret clusters using top-weighted terms
-- Compare cluster prevalence by source
+    - **The Guardian**
 
-### 4. Topic Modeling (LDA)
-- Apply Latent Dirichlet Allocation (LDA)
-- Extract dominant narrative topics
-- Assign topics to individual headlines
-- Analyze topic distribution across outlets
+- Fields include source, timestamp, and headline text
 
-### 5. Final Synthesis
-- Identify the most interpretable and recurring narratives
-- Highlight framing differences between CNBC, Reuters, and The Guardian
-- Discuss limitations and potential extensions
+The focus is comparative framing, not proprietary data.
 
----
+## Approach
 
-## 📁 Repository Structure
+- Text cleaning and normalization
+
+- TF-IDF feature construction (interpretable baseline)
+
+- K-Means clustering for headline grouping
+
+- LDA topic modeling for dominant narratives
+
+- Cross-source comparison of topic prevalence
+
+## Evaluation & Findings
+
+- Narrative emphasis differs significantly by outlet
+
+- Consensus narratives form after price discovery
+
+- Framing divergence explains delayed or exaggerated reactions
+
+## Limitations
+
+- Headline-only corpus
+
+- Static topic modeling
+
+- No direct price linkage yet
+
+## Planned Next Steps
+
+- Dynamic topic modeling to track narrative drift
+
+- Event-aligned narrative analysis
+
+- Full-article text ingestion
+
+## Reproducibility — Run Locally
+```bash
+git clone https://github.com/btheard3/financial-news-nlp
+cd financial-news-nlp
+pip install -r requirements.txt
 ```
-financial-news-nlp/
-├── data/
-│ ├── raw/ # Original headline CSVs
-│ └── processed/ # Cleaned & modeled outputs
-├── notebooks/
-│ ├── 01_eda_problem_framing.ipynb
-│ ├── 02_text_cleaning_normalization.ipynb
-│ ├── 03_tfidf_clustering_baseline.ipynb
-│ ├── 04_topic_modeling_narratives.ipynb
-│ └── 05_final_summary.ipynb
-├── README.md
+
+
+Run notebooks sequentially:
+```
+01_eda_problem_framing.ipynb
+02_text_cleaning.ipynb
+03_tfidf_modeling.ipynb
+04_topic_modeling.ipynb
+05_final_summary.ipynb
 ```
 
----
+## Portfolio Context
 
-## 🔍 Key Findings (High-Level)
+**Narrative layer** — explains how market stories form around quantitative signals.
 
-- A small number of themes dominate financial coverage (markets, earnings, macro policy, geopolitics)
-- Reuters tends to emphasize factual, macro-driven narratives
-- CNBC leans toward market reaction and investor sentiment
-- The Guardian provides broader socio-economic framing
-- Topic modeling provides clearer narrative separation than clustering alone
+Author
 
----
+Brandon Theard
+Data Scientist | Decision-Support Systems
 
-## ⚠️ Limitations
+GitHub: https://github.com/btheard3
 
-- Headlines only (no full article bodies)
-- Unsupervised methods may mix adjacent themes
-- Topic counts are heuristic, not ground truth
-
----
-
-## 🚀 Next Steps
-
-- Replace bag-of-words with transformer embeddings
-- Track narrative evolution over time
-- Extend analysis to full articles or social media
-- Use narrative signals as features in downstream financial models
-
----
-
-## 🛠️ Tech Stack
-
-- Python
-- pandas, NumPy
-- scikit-learn
-- Matplotlib
-- Jupyter
-
----
-
-## ✍🏽 Author
-
-Brandon Theard  
-Data Scientist | NLP & Financial Analysis
+LinkedIn: https://www.linkedin.com/in/brandon-theard-811b38131/
