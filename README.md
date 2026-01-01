@@ -90,7 +90,7 @@ Run notebooks sequentially:
 
 **Narrative layer** — explains how market stories form around quantitative signals.
 
-Author
+## Author
 
 Brandon Theard
 Data Scientist | Decision-Support Systems
